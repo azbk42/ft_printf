@@ -6,7 +6,7 @@
 /*   By: azbk <azbk@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 16:44:50 by azbk              #+#    #+#             */
-/*   Updated: 2023/09/17 18:20:47 by azbk             ###   ########.fr       */
+/*   Updated: 2023/09/17 19:27:40 by azbk             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,8 @@
 
 int main()
 {
-
-    // char *str = "Bonjour";
-    // char test = 'D';
-    // unsigned int hexa = 42;
-    // int count = 0;
-    // int nbr = -2147483648;
-    
-    // count = ft_printf("hexa = %d", str);
-
-    // printf("\ncount = %d\n", count);
-    // ft_printf("%s", count);
-
-
-
     int a = 0;
+    int add = 0;
     int a1 = 0;
     int a2 = 0;
     printf("\nBASE\n\n");
@@ -55,8 +42,8 @@ int main()
         printf(ANSI_COLOR_GREEN     "OK!"     ANSI_COLOR_RESET "\n");
     else
         printf(ANSI_COLOR_RED       "KO!\tma fonction : %d\n   \tfonction de base : %d" ANSI_COLOR_RESET "\n", a1, a2);
-    a1 = ft_printf("%%p : sont ici : %p\n", &a);
-    a2 = printf("%%p : sont ici : %p\n", &a);
+    a1 = ft_printf("%%p : sont ici : %p\n", &add);
+    a2 = printf("%%p : sont ici : %p\n", &add);
     if (a1 == a2)
         printf(ANSI_COLOR_GREEN     "OK!"     ANSI_COLOR_RESET "\n");
     else
@@ -137,9 +124,5 @@ int main()
         printf(ANSI_COLOR_GREEN     "OK!"     ANSI_COLOR_RESET "\n");
     else
         printf(ANSI_COLOR_RED       "KO!\tma fonction : %d\n   \tfonction de base : %d" ANSI_COLOR_RESET "\n", a1, a2);
-    printf("\nDOIT SEGFAULT\n\n");
-	
-    printf("ma fct 2 = %d\n", ft_printf("%s\n", str));  //OK : seg fault si \n colle a la chaine null
-    //printf("fct 2 = %d\n", printf("%s\n", str));
-
-} 
+}
+ 

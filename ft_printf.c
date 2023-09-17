@@ -6,13 +6,11 @@
 /*   By: azbk <azbk@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 16:44:38 by azbk              #+#    #+#             */
-/*   Updated: 2023/09/17 17:39:11 by azbk             ###   ########.fr       */
+/*   Updated: 2023/09/17 19:33:07 by azbk             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-
 
 void	parsing_format(int *count, char format, va_list args)
 {
@@ -28,7 +26,8 @@ void	parsing_format(int *count, char format, va_list args)
 		ft_putnbr(va_arg(args, int), count);
 	else if (format == 'u')
 		print_hexa_u(count, va_arg(args, unsigned int), format, 10);
-	// else if (format == 'p')
+	else if (format == 'p')
+		print_adress(va_arg(args, void *), count);
 }
 
 int	ft_printf(const char *format, ...)
