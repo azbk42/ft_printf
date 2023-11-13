@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azbk <azbk@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: emauduit <emauduit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 16:44:38 by azbk              #+#    #+#             */
-/*   Updated: 2023/09/17 19:33:07 by azbk             ###   ########.fr       */
+/*   Updated: 2023/11/13 12:54:32 by emauduit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ void	parsing_format(int *count, char format, va_list args)
 	else if (format == 's')
 		ft_putstr(va_arg(args, char *), count);
 	else if (format == 'x' || format == 'X')
-		print_hexa_u(count, va_arg(args, unsigned int), format, 16);
+		print_hexa(count, va_arg(args, unsigned int), format, 16);
 	else if (format == 'i' || format == 'd')
 		ft_putnbr(va_arg(args, int), count);
 	else if (format == 'u')
-		print_hexa_u(count, va_arg(args, unsigned int), format, 10);
+		print_hexa(count, va_arg(args, unsigned int), format, 10);
 	else if (format == 'p')
 		print_adress(va_arg(args, void *), count);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azbk <azbk@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: emauduit <emauduit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 19:39:12 by azbk              #+#    #+#             */
-/*   Updated: 2023/09/17 19:39:22 by azbk             ###   ########.fr       */
+/*   Updated: 2023/11/13 12:56:53 by emauduit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_putstr(const char *str, int *count)
 		ft_putchar(str[i++], count);
 }
 
-void	print_hexa_u(int *count, unsigned int long nbr, char letter, int base)
+void	print_hexa(int *count, unsigned int long nbr, char letter, unsigned int base)
 {
 	char	*hexa_min;
 	char	*hexa_maj;
@@ -42,10 +42,10 @@ void	print_hexa_u(int *count, unsigned int long nbr, char letter, int base)
 	hexa_min = "0123456789abcdef";
 	hexa_maj = "0123456789ABCDEF";
 	decimal = "0123456789";
-	if (nbr >= (unsigned int)base)
+	if (nbr >= base)
 	{
-		print_hexa_u(count, nbr / base, letter, base);
-		print_hexa_u(count, nbr % base, letter, base);
+		print_hexa(count, nbr / base, letter, base);
+		print_hexa(count, nbr % base, letter, base);
 	}
 	else if (letter == 'x')
 		ft_putchar(hexa_min[nbr], count);
@@ -71,7 +71,7 @@ void	ft_putnbr(int nb, int *count)
 		ft_putnbr(nbr % 10, count);
 	}
 	else
-		ft_putchar(nb + '0', count);
+		ft_putchar(nbr + '0', count);
 }
 
 void	print_adress(void *add, int *count)
@@ -84,8 +84,7 @@ void	print_adress(void *add, int *count)
 	else
 	{
 		nbr = (unsigned long int)add;
-		printf("nbr = %ld\n", nbr);
 		ft_putstr("0x", count);
-		print_hexa_u(count, nbr, 'x', 16);
+		print_hexa(count, nbr, 'x', 16);
 	}
 }
